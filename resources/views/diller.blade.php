@@ -10,23 +10,21 @@
 
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
     <link rel="stylesheet" href="{{ asset('css/framework.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css?3') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="{{ asset('js/jquery.js') }}"></script>
-    {{-- <script src="{{ asset('js/js.js?4') }}"></script> --}}
+    <script src="{{ asset('js/js.js') }}"></script>
 </head>
 
 <body>
     @include('includes.header')
-
     <section class="home">
         <div class="container clearfix">
             @include('includes.balance')
             <h1 class="our_clients">Наши клиенты</h1>
-            @include('includes.balance')
             <form class="search_user">
                 <a href="create_cliente.html" class="add_btn">Добавить клиента</a>
                 <input type="text" placeholder="Введите имя пользователя" />
