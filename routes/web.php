@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\DillerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
@@ -37,4 +38,8 @@ Route::group(['middleware' => ['auth']], function () {
    Route::get('/regulation', [RegulationController::class, 'index'])->name('regulation');
    Route::get('/support', [SupportController::class, 'index'])->name('support');
    Route::put('/profile', [RegisterController::class, 'update'])->name('user.update');
+});
+
+Route::group(['middleware' => ['auth'], 'prefix' => "admin"], function () {
+   Route::get('/', [AdminHomeController::class, 'index'])->name('admin.index');
 });
