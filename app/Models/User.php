@@ -16,4 +16,19 @@ class User extends Authenticatable
     protected $table = 'users';
     protected $keyType = 'string';
     public $timestamps = false;
+    protected $attributes = [
+        'email' => ' ',
+        'dealer' => ' ',
+        'server_n' => ' ',
+        'notice' => ' ',
+        'skype' => ' ',
+        'icq' => ' ',
+        'refer' => ' ',
+        'packet_group' => ' ',
+        'time_till' => ' ',
+        'time_from' => 0
+    ];
+    protected $casts = [
+        'confirmed' => 'boolean',
+    ];
 }

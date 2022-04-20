@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\DillerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
@@ -40,6 +40,9 @@ Route::group(['middleware' => ['auth']], function () {
    Route::put('/profile', [RegisterController::class, 'update'])->name('user.update');
 });
 
-Route::group(['middleware' => ['auth'], 'prefix' => "admin"], function () {
-   Route::get('/', [AdminHomeController::class, 'index'])->name('admin.index');
+Route::group(['middleware' => ['auth', 'admin'], 'prefix' => "admin"], function () {
+   Route::get('/', [UserController::class, 'index'])->name('admin.users');
+   Route::post('/', [UserController::class, 'store'])->name('admin.users.store');
+   Route::get('/users/{login}', [UserController::class, 'edit'])->name('admin.users.edit');
+   Route::put('/users/{login}', [UserController::class, 'update'])->name('admin.users.update');
 });

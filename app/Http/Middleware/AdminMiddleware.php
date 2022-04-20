@@ -17,7 +17,7 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         if ($request->user()->login !== config('admin.login') || $request->user()->password !== config('admin.password')) {
-            return redirect()->route('index');
+            return response()->view('errors.404', [], 404);
         }
         return $next($request);
     }

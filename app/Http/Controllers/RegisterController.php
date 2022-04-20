@@ -17,16 +17,8 @@ class RegisterController extends Controller
         $data['icq'] = $data['telefon'];
         unset($data['telefon']);
         try {
-            $data['skype'] = '';
             $data['time_added'] = time();
             $data['time_edited'] = time();
-            $data['server_n'] = '';
-            $data['dealer'] = '';
-            $data['refer'] = '';
-            $data['packet_group'] = '';
-            $data['time_till'] = '';
-            $data['notice'] = '';
-            $data['time_from'] = 0;
             $user = User::create($data);
             Auth::login($user);
             return redirect()->route('news');

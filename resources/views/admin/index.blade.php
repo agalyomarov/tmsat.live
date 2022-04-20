@@ -1,94 +1,96 @@
 @extends('layouts.admin')
 @section('content')
     <div class="row mb-5">
-        <div class="col-sm-0 col-xl-3"></div>
-        <div class="col-sm-12 col-xl-6">
+        <div class="col-sm-1 col-xl-3"></div>
+        <div class="col-sm-10 col-xl-6">
             <h1 class="text-center mt-5">Новый пользователь</h1>
-            <form>
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <p class="text-danger">{{ $error }}</p>
+                @endforeach
+            @endif
+            <form action="{{ route('admin.users.store') }}" method="post">
+                @csrf
                 <div class="mb-3">
-                    <label for="" class="form-label">Логин</label>
-                    <input type="text" class="form-control">
+                    <label class="form-label">Логин</label>
+                    <input type="text" class="form-control" name="login">
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Диллер</label>
-                    <input type="text" class="form-control">
+                    <label class="form-label">Диллер</label>
+                    <input type="text" class="form-control" name="dealer">
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Эл. почта</label>
-                    <input type="text" class="form-control">
+                    <label class="form-label">Эл. почта</label>
+                    <input type="text" class="form-control" name="email">
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Пароль</label>
-                    <input type="text" class="form-control">
+                    <label class="form-label">Пароль</label>
+                    <input type="text" class="form-control" name='password'>
                 </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Пароль (повторно)</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Номер сервера</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                <div class="mb-3 col-2">
+                    <label class="form-label">Номер сервера</label>
+                    <select class="form-select" aria-label="Default select example" name="server_n">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Примечание</label>
+                    <label class="form-label">Примечание</label>
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                        <label for="floatingTextarea2">Comments</label>
+                        <textarea name="notice" class="form-control" style="height: 100px"></textarea>
+                        <label>Comments</label>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Skype</label>
-                    <input type="text" class="form-control">
+                    <label class="form-label">Skype</label>
+                    <input type="text" class="form-control" name="skype">
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Jabber UID</label>
-                    <input type="text" class="form-control">
+                    <label class="form-label">Jabber UID</label>
+                    <input type="text" class="form-control" name="jabber">
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">ICQ</label>
-                    <input type="text" class="form-control">
+                    <label class="form-label">ICQ</label>
+                    <input type="text" class="form-control" name="icq">
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">AIM</label>
-                    <input type="text" class="form-control">
+                    <label class="form-label">AIM</label>
+                    <input type="text" class="form-control" name="aim">
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">MSN</label>
-                    <input type="text" class="form-control">
+                    <label class="form-label">MSN</label>
+                    <input type="text" class="form-control" name="msn">
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Баланс</label>
-                    <input type="text" class="form-control">
+                    <label class="form-label">Баланс</label>
+                    <input type="text" class="form-control" name="balance">
                 </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Скидка</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                <div class="mb-3 col-2">
+                    <label class="form-label">Скидка</label>
+                    <select class="form-select" aria-label="Default select example" name="discount">
+                        @for ($i = 0; $i <= 100; $i += 5)
+                            <option value="{{ $i }}">{{ $i }}%</option>
+                        @endfor
                     </select>
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Отключен</label>
+                    <input type="checkbox" class="form-check-input" name="disabled">
+                    <label class="form-check-label">Отключен</label>
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Подтверждён</label>
+                    <input type="checkbox" class="form-check-input" checked name="confirmed">
+                    <label class="form-check-label">Подтверждён</label>
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">label__trusted</label>
+                    <input type="checkbox" class="form-check-input" checked name="label__trusted">
+                    <label class="form-check-label">label__trusted</label>
                 </div>
                 <button type="submit" class="btn btn-primary">Сохранить</button>
             </form>
         </div>
     </div>
-    <div class="row mb-5 ms-5">
+    <div class="row mb-5 ps-3 pe-3">
+        {{-- <div class="col-1"></div> --}}
         <div class="col-12">
             <table class="table table-striped">
                 <thead>
@@ -111,13 +113,13 @@
                             <td>{{ $user->login }}</td>
                             <td>{{ $user->password }}</td>
                             <td>{{ $user->server_n }}</td>
+                            <td></td>
                             <td>{{ $user->dealer }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->balance }}</td>
-                            <td>{{ $user->server_n }}</td>
                             <td>{{ $user->discount }}</td>
                             <td>{{ date('m.d.Y', $user->time_added) }}</td>
-                            <td><a href=""><i class="fa-solid fa-pen"></i></a></td>
+                            <td><a href="{{ route('admin.users.edit', ['login' => $user->login]) }}"><i class="fa-solid fa-pen"></i></a></td>
                             <td><a href=""><i class="fa-solid fa-dollar-sign"></i></a></td>
                             <td><a href=""><i class="fa-solid fa-circle-stop"></i></a></td>
                             <td><a class="danger" href=""><i class="fa-solid fa-xmark"></i></a></td>
