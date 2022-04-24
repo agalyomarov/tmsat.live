@@ -6,12 +6,12 @@
                         <font style="vertical-align: inherit;">Пользoватели</font>
                     </font>
                 </a></li>
-            <li><a href="#" class="nav-link px-2 text-white">
+            <li><a href="{{ route('admin.packet.index') }}" class="nav-link px-2 text-white">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">Пакеты</font>
                     </font>
                 </a></li>
-            <li><a href="#" class="nav-link px-2 text-white">
+            <li><a href="{{ route('admin.news.index') }}" class="nav-link px-2 text-white">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">Новости</font>
                     </font>

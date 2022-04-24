@@ -27,7 +27,6 @@ class UserUpdateRequest extends FormRequest
             'email' => [],
             'dealer' => [],
             'password' => ['required'],
-            'server_n' => ['required'],
             'notice' => [],
             'skype' => [],
             // 'jabber' => [],

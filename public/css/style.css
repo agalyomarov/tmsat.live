@@ -723,6 +723,7 @@ header .list_navi li a:hover {
     display: block;
 }
 
+.all_user .item_user .item .all_action p,
 .all_user .item_user .item .all_action a {
     color: #fff;
     font-size: 16px;
@@ -732,9 +733,11 @@ header .list_navi li a:hover {
     -o-transition: 0.3s ease-out;
     -webkit-transition: 0.3s ease-out;
     -moz-transition: 0.3s ease-out;
+    cursor: pointer;
 }
 
-.all_user .item_user .item .all_action a:hover {
+.all_user .item_user .item .all_action a:hover,
+.all_user .item_user .item .all_action p:hover {
     color: #45edff;
 }
 
@@ -1055,6 +1058,17 @@ header .list_navi li a:hover {
 }
 
 .main_pay .pay_sel select {
+    background: transparent;
+    color: #fff;
+    margin: 0 5px;
+    float: left;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 5px 5px;
+    font-size: 15px;
+}
+
+.main_pay .pay_sel input {
     background: transparent;
     color: #fff;
     margin: 0 5px;

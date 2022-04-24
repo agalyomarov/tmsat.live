@@ -27,13 +27,6 @@
                     <label class="form-label">Пароль</label>
                     <input type="text" class="form-control" name='password'>
                 </div>
-                <div class="mb-3 col-2">
-                    <label class="form-label">Номер сервера</label>
-                    <select class="form-select" aria-label="Default select example" name="server_n">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
-                </div>
                 <div class="mb-3">
                     <label class="form-label">Примечание</label>
                     <div class="form-floating">
@@ -92,7 +85,7 @@
     <div class="row mb-5 ps-3 pe-3">
         {{-- <div class="col-1"></div> --}}
         <div class="col-12">
-            <table class="table table-striped">
+            <table class="table table-striped admin-index">
                 <thead>
                     <tr>
                         <th scope="col">Логин</th>
@@ -122,13 +115,12 @@
                             <td><a href="{{ route('admin.users.edit', ['login' => $user->login]) }}"><i class="fa-solid fa-pen"></i></a></td>
                             <td><a href=""><i class="fa-solid fa-dollar-sign"></i></a></td>
                             <td><a href=""><i class="fa-solid fa-circle-stop"></i></a></td>
-                            <td><a class="danger" href=""><i class="fa-solid fa-xmark"></i></a></td>
+                            <td class="text-danger"><i class="delete-user fa-solid fa-xmark"></td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
             {{ $users->links() }}
         </div>
-
     </div>
 @endsection

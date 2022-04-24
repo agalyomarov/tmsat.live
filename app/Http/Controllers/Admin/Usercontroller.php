@@ -15,6 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::orderBy('time_added', 'DESC')->paginate(50);
+        // dd($users);
         return view('admin.index', compact('users'));
     }
     public function store(UserRequest $request)
@@ -48,8 +49,8 @@ class UserController extends Controller
         $data = $request->validated();
         try {
             foreach ($data as $key => $el) {
-                if (!$el) {
-                    unset($data[$key]);
+                if ($el === null) {
+                    $data[$key] = '';
                 }
                 if ($el == 'on') {
                     $data[$key] = true;

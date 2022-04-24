@@ -28,13 +28,6 @@
                     <label class="form-label">Пароль</label>
                     <input type="text" class="form-control" name='password' value="{{ $user->password }}">
                 </div>
-                <div class="mb-3 col-2">
-                    <label class="form-label">Номер сервера</label>
-                    <select class="form-select" aria-label="Default select example" name="server_n">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
-                </div>
                 <div class="mb-3">
                     <label class="form-label">Примечание</label>
                     <div class="form-floating">
